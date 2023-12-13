@@ -179,7 +179,9 @@
         if ([startView isKindOfClass:UIImageView.class]) {
             startImage = ((UIImageView *)startView).image;
         } else {
-            startImage = YBIBSnapshotView(startView);
+            if (startView) {
+                startImage = YBIBSnapshotView(startView);
+            }
         }
     }
     if ([data respondsToSelector:@selector(yb_imageViewFrameWithContainerSize:imageSize:orientation:)]) {
